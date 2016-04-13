@@ -1,0 +1,167 @@
+.ds-slider,
+.ds-slider * {
+    box-sizing: border-box;
+    display: block;
+    zoom: 1;
+}
+.ds-slider {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+}
+
+.ds-slider-wrap {
+    position: relative;
+    max-height: 2560px;
+    transition: all 0.4s ease;
+}
+
+.ds-slider .slides,
+.ds-slider .slides > li,
+.ds-slider-dots,
+.ds-slider-dots > li,
+.ds-slider-nav,
+.ds-slider-nav > li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ds-slider .slides {
+    position: relative;
+    height: 100%;
+    visibility: visible;
+    transition-property: transform;
+    z-index: 1;
+}
+
+.ds-slider .slides img {
+    display: block;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.ds-slider .slides:before,
+.ds-slider .slides:after {
+    content: " ";
+    display: table;
+}
+.ds-slider .slides:after {
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.ds-slider .slides > li {
+    display: block;
+    position: relative;
+    float: left;
+}
+
+.ds-slider-dots {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    bottom: 35px;
+    z-index: 3;
+    user-select: none;
+}
+
+.ds-slider-dots > li {
+    position: relative;
+    display: inline-block;
+    margin: 0 6px;
+}
+
+.ds-slider-dots > li > a {
+    display: block;
+    width: 11px;
+    height: 11px;
+    border: 1px solid #29aae2;
+    text-indent: -9999px;
+    border-radius: 6px;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.ds-slider-dots > li > a:hover {
+    background-color: #29aae2;
+}
+
+.ds-slider-dots > li > a.ds-slider-active {
+    background-color: #29aae2;
+}
+
+.ds-slider-nav {
+    z-index: 2;
+    user-select: none;
+}
+
+.ds-slider-nav > li > a {
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 60px;
+    margin: -30px 0 0;
+    overflow: hidden;
+    opacity: 0;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    z-index: 5;
+    transition: all 0.3s ease-in-out;
+}
+
+.ds-slider-nav > li > a:before {
+    font-family: "icon-fonts";
+    font-style: normal;
+    font-weight: 400;
+    speak: none;
+    text-decoration: inherit;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    content: "\e800";
+    font-size: 60px;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+}
+
+.ds-slider-nav > li > a.ds-slider-next:before {
+    content: '\e801';
+}
+
+.ds-slider-nav > li > a.ds-slider-prev {
+    left: -50px;
+}
+
+.ds-slider-nav > li > a.ds-slider-next {
+    right: -50px;
+}
+
+.ds-slider:hover > .ds-slider-nav > li > a,
+.ds-slider > .ds-slider-nav.active > li > a {
+    opacity: 0.7;
+}
+
+.ds-slider:hover > .ds-slider-nav > li > a.ds-slider-prev,
+.ds-slider > .ds-slider-nav.active > li > a.ds-slider-prev {
+    left: 10px;
+}
+
+.ds-slider:hover > .ds-slider-nav > li > a.ds-slider-next,
+.ds-slider > .ds-slider-nav.active > li > a.ds-slider-next {
+    right: 10px;
+}
+
+.ds-slider:hover > .ds-slider-nav > li > a:hover,
+.ds-slider > .ds-slider-nav.active > li > a:hover{
+    opacity: 1;
+}

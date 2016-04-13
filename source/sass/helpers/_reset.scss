@@ -1,0 +1,142 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+@at-root {
+    @-moz-viewport      { width: device-width; }
+    @-ms-viewport       { width: device-width; }
+    @-o-viewport        { width: device-width; }
+    @-webkit-viewport   { width: device-width; }
+    @viewport           { width: device-width; }
+}
+
+html {
+    height: 100%;
+    font-size: $font-size-base;
+    // Changes the default tap highlight to be completely transparent in iOS.
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $text-color;
+    background-color: $body-bg;
+    min-width: 320px;
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+}
+
+@media (max-width: 320px) {
+    body {
+        overflow-x: auto;
+    }
+}
+
+section {
+    overflow: hidden;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    &:focus,
+    &:hover {
+        color: $link-color;
+        text-decoration: $link-hover-decoration;
+    }
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ol,
+ul,
+dl {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+    margin-bottom: 0;
+}
+
+figure {
+    margin: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+[role="button"] {
+    cursor: pointer;
+}
+
+input,
+button,
+select,
+textarea {
+    // Remove all `margin`s so our classes don't have to do it themselves.
+    margin: 0;
+    // Normalize includes `font: inherit;`, so `font-family`. `font-size`, etc are
+    // properly inherited. However, `line-height` isn't addressed there. Using this
+    // ensures we don't need to unnecessarily redeclare the global font stack.
+
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    // iOS adds rounded borders by default
+    border-radius: 0;
+}
+
+textarea {
+    // Textareas should really only resize vertically so they don't break their (horizontal) containers.
+    resize: vertical;
+}
+
+fieldset {
+    // Chrome and Firefox set a `min-width: min-content;` on fieldsets,
+    // so we reset that to ensure it behaves more like a standard block element.
+    // See https://github.com/twbs/bootstrap/issues/12359.
+    min-width: 0;
+    // Reset the default outline behavior of fieldsets so they don't affect page layout.
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+input[type="search"] {
+    // Undo Normalize's default here to match our global overrides.
+    box-sizing: inherit;
+    // This overrides the extra rounded corners on search inputs in iOS so that our
+    // `.form-control` class can properly style them. Note that this cannot simply
+    // be added to `.form-control` as it's not specific enough. For details, see
+    // https://github.com/twbs/bootstrap/issues/11586.
+    -webkit-appearance: none;
+}
